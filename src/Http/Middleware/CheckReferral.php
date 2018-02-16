@@ -11,6 +11,7 @@
 
 namespace Emanci\Referral\Http\Middleware;
 
+use App\User;
 use Closure;
 
 class CheckReferral
@@ -21,7 +22,7 @@ class CheckReferral
             return $next($request);
         }
 
-        if ($ref = $request->query('ref')) {
+        if (($ref = $request->query('ref')) && User::referralExists($ref)) {
             return redirect($request->fullUrl())->withCookie(cookie()->forever('referral', $ref));
         }
 

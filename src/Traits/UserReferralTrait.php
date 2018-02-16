@@ -12,6 +12,7 @@
 namespace Emanci\Referral\Traits;
 
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cookie;
 
 trait UserReferralTrait
@@ -19,6 +20,11 @@ trait UserReferralTrait
     public function getReferralLink()
     {
         return url('/').'/?ref='.$this->affiliate_id;
+    }
+
+    public static function scopeReferralExists(Builder $query, $referral)
+    {
+        return $query->whereAffiliateId($referral)->exists();
     }
 
     protected static function boot()
@@ -38,7 +44,7 @@ trait UserReferralTrait
 
         do {
             $referral = str_random($length);
-        } while (self::whereAffiliateId($referral)->first());
+        } while (static::referralExists($referral));
 
         return $referral;
     }
