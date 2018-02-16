@@ -1,0 +1,41 @@
+{
+    "name": "emanci/laravel-referral",
+    "description": "A Simple Referral System With Laravel",
+    "keywords": ["referral"],
+    "license": "MIT",
+    "authors": [{
+        "name": "emanci",
+        "email": "zhengchaopu@gmail.com"
+    }],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "laravel/laravel": "^5.5",
+        "mockery/mockery": "~0.9",
+        "phpunit/phpunit": "~4.0|~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Emanci\\Referral\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Emanci\\Referral\\ReferralServiceProvider"
+            ]
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}

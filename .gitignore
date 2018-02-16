@@ -1,0 +1,5 @@
+_Store
+/vendor
+/coverage-html
+composer.lock
+.idea

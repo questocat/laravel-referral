@@ -1,1 +1,1 @@
-# laravel-invite
+# laravel-referral
