@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of emanci/laravel-referral package.
+ *
+ * (c) emanci <zhengchaopu@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Emanci\Referral\Traits;
 
 use App\User;
@@ -7,6 +16,11 @@ use Illuminate\Support\Facades\Cookie;
 
 trait UserReferralTrait
 {
+    public function getReferralLink()
+    {
+        return url('/').'/?ref='.$this->affiliate_id;
+    }
+
     protected static function boot()
     {
         parent::boot();
@@ -27,10 +41,5 @@ trait UserReferralTrait
         } while (self::whereAffiliateId($referral)->first());
 
         return $referral;
-    }
-
-    public function getReferralLink()
-    {
-        return url('/').'/?ref='.$this->affiliate_id;
     }
 }

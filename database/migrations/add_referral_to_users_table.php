@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of emanci/laravel-referral package.
+ *
+ * (c) emanci <zhengchaopu@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +31,7 @@ class AddReferralToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('referred_by');
             $table->dropColumn('affiliate_id');
         });

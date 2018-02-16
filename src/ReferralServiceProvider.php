@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of emanci/laravel-referral package.
+ *
+ * (c) emanci <zhengchaopu@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Emanci\Referral;
 
 use Illuminate\Support\ServiceProvider;
@@ -35,7 +44,7 @@ class ReferralServiceProvider extends ServiceProvider
     protected function setupConfig()
     {
         $source = realpath(__DIR__.'/../config/referral.php');
-        
+
         $this->publishes([
             $source => config_path('referral.php'),
         ], 'config');
@@ -51,7 +60,7 @@ class ReferralServiceProvider extends ServiceProvider
         $timestamp = date('Y_m_d_His');
         $migrationsSource = realpath(__DIR__.'/../database/migrations/add_referral_to_users_table.php');
         $migrationsTarget = database_path("/migrations/{$timestamp}_add_referral_to_users_table.php");
-        
+
         $this->publishes([
             $migrationsSource => $migrationsTarget,
         ], 'migrations');
