@@ -84,6 +84,14 @@ $data = [
 App\User::create($data);
 ```
 
+Get the referral link:
+
+```php
+$user = App\User::findOrFail(1);
+
+{{ $user->getReferralLink() }}
+```
+
 
 ## License
 
