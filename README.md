@@ -3,6 +3,9 @@
 A Referral System With Laravel
 
 [![StyleCI](https://styleci.io/repos/115917817/shield?branch=master)](https://styleci.io/repos/115917817)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/emanci/laravel-referral/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/emanci/laravel-referral/badges/build.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/build-status/master)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/emanci/laravel-referral)
 
 ## Installation
 
