@@ -1,7 +1,7 @@
 {
     "name": "emanci/laravel-referral",
-    "description": "A Simple Referral System With Laravel",
-    "keywords": ["referral", "referral-system"],
+    "description": "A Referral System With Laravel",
+    "keywords": ["referral", "referral-system", "affiliate-tracking"],
     "license": "MIT",
     "authors": [{
         "name": "emanci",

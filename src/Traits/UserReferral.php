@@ -11,11 +11,10 @@
 
 namespace Emanci\Referral\Traits;
 
-use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cookie;
 
-trait UserReferralTrait
+trait UserReferral
 {
     public function getReferralLink()
     {
@@ -31,9 +30,11 @@ trait UserReferralTrait
     {
         parent::boot();
 
-        static::creating(function (User $model) {
-            $referredBy = Cookie::get('referral');
-            $model->referred_by = $referredBy;
+        static::creating(function ($model) {
+            if ($referredBy = Cookie::get('referral')) {
+                $model->referred_by = $referredBy;
+            }
+
             $model->affiliate_id = self::generateReferral();
         });
     }
