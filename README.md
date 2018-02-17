@@ -61,7 +61,7 @@ Once the middleware has been defined in the HTTP kernel, you may use the middlew
 Route::get('/', 'HomeController@index')->middleware('referral');
 ```
 
-Now you can create the user
+Now you can create the user:
 
 ```php
 $user = new App\User();
@@ -70,7 +70,7 @@ $user->password = bcrypt('password');
 $user->email = 'zhengchaopu@gmail.com';
 $user->save();
 
-Or
+// Or
 
 $data = [
     'name' => 'zhengchaopu',
