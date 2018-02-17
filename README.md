@@ -12,7 +12,7 @@ A Referral System With Laravel
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
 ```bash
-$ composer require emanci/laravel-referral
+$ composer require emanci/laravel-referral "~1.0"
 ```
 
 First add service providers into the config/app.php
