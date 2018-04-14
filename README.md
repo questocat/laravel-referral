@@ -3,9 +3,9 @@
 A Referral System With Laravel
 
 [![StyleCI](https://styleci.io/repos/115917817/shield?branch=master)](https://styleci.io/repos/115917817)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/questocat/laravel-referral/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/questocat/laravel-referral/badges/build.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/build-status/master)
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/emanci/laravel-referral)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/questocat/laravel-referral/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/questocat/laravel-referral/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/questocat/laravel-referral/badges/build.png?b=master)](https://scrutinizer-ci.com/g/questocat/laravel-referral/build-status/master)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/questocat/laravel-referral)
 
 ## Installation
 
@@ -24,13 +24,13 @@ First add service providers into the config/app.php
 Publish the migrations
 
 ```bash
-$ php artisan vendor:publish --provider="Emanci\Referral\ReferralServiceProvider" --tag="migrations"
+$ php artisan vendor:publish --provider="Questocat\Referral\ReferralServiceProvider" --tag="migrations"
 ```
 
 Publish the config
 
 ```bash
-$ php artisan vendor:publish --provider="Emanci\Referral\ReferralServiceProvider" --tag="config"
+$ php artisan vendor:publish --provider="Questocat\Referral\ReferralServiceProvider" --tag="config"
 ```
 
 ## Setup the model
