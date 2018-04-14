@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of emanci/laravel-referral package.
+ * This file is part of questocat/laravel-referral package.
  *
  * (c) emanci <zhengchaopu@gmail.com>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Emanci\Referral;
+namespace Questocat\Referral;
 
 use Illuminate\Support\ServiceProvider;
 
