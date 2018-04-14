@@ -1,6 +1,6 @@
 <?php
 $header = <<<'EOF'
-This file is part of emanci/laravel-referral package.
+This file is part of questocat/laravel-referral package.
 
 (c) emanci <zhengchaopu@gmail.com>
 

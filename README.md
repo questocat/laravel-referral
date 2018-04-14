@@ -3,8 +3,8 @@
 A Referral System With Laravel
 
 [![StyleCI](https://styleci.io/repos/115917817/shield?branch=master)](https://styleci.io/repos/115917817)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/emanci/laravel-referral/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/emanci/laravel-referral/badges/build.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/questocat/laravel-referral/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/questocat/laravel-referral/badges/build.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-referral/build-status/master)
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/emanci/laravel-referral)
 
 ## Installation
@@ -12,13 +12,13 @@ A Referral System With Laravel
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
 ```bash
-$ composer require emanci/laravel-referral "~1.0"
+$ composer require questocat/laravel-referral "~1.0"
 ```
 
 First add service providers into the config/app.php
 
 ```php
-\Emanci\Referral\ReferralServiceProvider::class,
+\Questocat\Referral\ReferralServiceProvider::class,
 ```
 
 Publish the migrations
@@ -38,7 +38,7 @@ $ php artisan vendor:publish --provider="Emanci\Referral\ReferralServiceProvider
 Add UserReferral Trait to your User model.
 
 ```php
-use Emanci\Referral\Traits\UserReferral
+use Questocat\Referral\Traits\UserReferral
 
 class User extends Model
 {
@@ -54,7 +54,7 @@ Assigning CheckReferral Middleware To Routes.
 // Within App\Http\Kernel Class...
 
 protected $routeMiddleware = [
-    'referral' => \Emanci\Referral\Http\Middleware\CheckReferral::class,
+    'referral' => \Questocat\Referral\Http\Middleware\CheckReferral::class,
 ];
 ```
 
@@ -95,4 +95,4 @@ $user = App\User::findOrFail(1);
 
 ## License
 
-Licensed under the [MIT license](https://github.com/emanci/laravel-referral/blob/master/LICENSE).
+Licensed under the [MIT license](https://github.com/questocat/laravel-referral/blob/master/LICENSE).

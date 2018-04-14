@@ -1,10 +1,10 @@
 {
-    "name": "emanci/laravel-referral",
+    "name": "questocat/laravel-referral",
     "description": "A Referral System With Laravel",
     "keywords": ["referral", "referral-system", "affiliate-tracking"],
     "license": "MIT",
     "authors": [{
-        "name": "emanci",
+        "name": "questocat",
         "email": "zhengchaopu@gmail.com"
     }],
     "require": {
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Emanci\\Referral\\": "src/"
+            "Questocat\\Referral\\": "src/"
         }
     },
     "autoload-dev": {
@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Emanci\\Referral\\ReferralServiceProvider"
+                "Questocat\\Referral\\ReferralServiceProvider"
             ]
         }
     },
