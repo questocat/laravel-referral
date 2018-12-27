@@ -13,16 +13,23 @@ namespace Questocat\Referral\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cookie;
+use Ramsey\Uuid\Uuid;
 
 trait UserReferral
 {
+    public function getReferrer()
+    {
+        $referral = $this->referred_by;
+        return $query->whereAffiliateId($referral)->get();
+    }
     public function getReferralLink()
     {
-        return url('/').'/?ref='.$this->affiliate_id;
+        return url('/') . '/?ref=' . $this->affiliate_id;
     }
 
     public static function scopeReferralExists(Builder $query, $referral)
     {
+        // No longuer need this function, keeping if for lolz.
         return $query->whereAffiliateId($referral)->exists();
     }
 
@@ -34,19 +41,18 @@ trait UserReferral
             if ($referredBy = Cookie::get('referral')) {
                 $model->referred_by = $referredBy;
             }
-
             $model->affiliate_id = self::generateReferral();
         });
     }
 
     protected static function generateReferral()
     {
-        $length = config('referral.referral_length', 5);
-
-        do {
-            $referral = str_random($length);
-        } while (static::referralExists($referral));
-
-        return $referral;
+        /*
+            str_random (Str::random()) tries to use openssl_random_pseudo_bytes 
+            which is a pseudo random number generator optimized for cryptography, not uniqueness !
+            the following line generates a version 1 (time-based) UUID object. 
+            Uniqueness is now guaranteed !
+         */
+        return Uuid::uuid1();
     }
 }

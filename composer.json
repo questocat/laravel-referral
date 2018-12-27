@@ -8,7 +8,8 @@
         "email": "zhengchaopu@gmail.com"
     }],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "ramsey/uuid": "^3.8"
     },
     "require-dev": {
         "laravel/laravel": "^5.5",
