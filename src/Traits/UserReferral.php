@@ -17,10 +17,9 @@ use Ramsey\Uuid\Uuid;
 
 trait UserReferral
 {
-    public function getReferrer()
+    public function Referrer()
     {
-        $referral = $this->referred_by;
-        return $query->whereAffiliateId($referral)->get();
+        return static::getReferrer($this->referred_by);
     }
     public function getReferralLink()
     {
@@ -32,7 +31,10 @@ trait UserReferral
         // No longuer need this function, keeping if for lolz.
         return $query->whereAffiliateId($referral)->exists();
     }
-
+    public function scopeGetReferrer(Builder $query, $referral)
+    {
+        return $query->whereAffiliateId($referral)->get();
+    }
     protected static function boot()
     {
         parent::boot();
