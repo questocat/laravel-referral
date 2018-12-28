@@ -33,7 +33,11 @@ trait UserReferral
     }
     public function scopeGetReferrer(Builder $query, $referral)
     {
-        return $query->whereAffiliateId($referral)->get()[0];
+        $referrer = $query->whereAffiliateId($referral)->get();
+        if($referrer){
+            return $referrer[0];
+        }
+        return null;
     }
     protected static function boot()
     {
