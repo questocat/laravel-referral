@@ -11,9 +11,9 @@
 
 namespace Tests\Stubs;
 
-use Questocat\Referral\Traits\UserAffiliate;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Questocat\Referral\Traits\UserAffiliate;
 
 class UserStub extends Authenticatable
 {
