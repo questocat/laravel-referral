@@ -16,19 +16,14 @@ use Illuminate\Support\ServiceProvider;
 class ReferralServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
      * Bootstrap the application events.
      */
     public function boot()
     {
-        $this->setupConfig();
-        $this->setupMigrations();
+        if ($this->app->runningInConsole()) {
+            $this->setupConfig();
+            $this->setupMigrations();
+        }
     }
 
     /**
@@ -43,11 +38,11 @@ class ReferralServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
-        $source = realpath(__DIR__.'/../config/referral.php');
+        $source = __DIR__.'/../config/referral.php';
 
         $this->publishes([
             $source => config_path('referral.php'),
-        ], 'config');
+        ], 'referral-config');
 
         $this->mergeConfigFrom($source, 'referral');
     }
@@ -57,12 +52,8 @@ class ReferralServiceProvider extends ServiceProvider
      */
     protected function setupMigrations()
     {
-        $timestamp = date('Y_m_d_His');
-        $migrationsSource = realpath(__DIR__.'/../database/migrations/add_referral_to_users_table.php');
-        $migrationsTarget = database_path("/migrations/{$timestamp}_add_referral_to_users_table.php");
-
         $this->publishes([
-            $migrationsSource => $migrationsTarget,
-        ], 'migrations');
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+        ], 'referral-migrations');
     }
 }

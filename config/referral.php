@@ -16,7 +16,23 @@ return [
     'user_model' => 'App\User',
 
     /*
-     * The length of referral code.
+     * It is used to identify that the link is an affiliate link.
      */
-    'referral_length' => 5,
+    'ref_query' => 'ref',
+
+    /*
+     * This cookie stores the affiliate ID.
+     */
+    'ref_cookie' => 'referred_by',
+
+    /*
+     * The lifetime in number of minutes for this affiliate ID.
+     * If zero (the default), the affiliate id never expires.
+     */
+    'lifetime_minutes' => 0,
+
+    /*
+     * Allows you to credit the last affiliate who referred the customer.
+     */
+    'credit_last_referrer' => false,
 ];
