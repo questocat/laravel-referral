@@ -4,5 +4,4 @@ checks:
         duplication: true
 filter:
     excluded_paths:
-        - tests/*
         - vendor/*
