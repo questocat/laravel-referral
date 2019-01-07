@@ -25,10 +25,9 @@ class AffiliateTrackingTest extends TestCase
     public function testAffiliateLink()
     {
         $user = UserStub::find(1);
-        $url = url('/register');
+        $url = url('/register/');
 
-        $this->assertEquals($url.'/?ref='.$user->affiliate_id, $user->getAffiliateLink($url));
-        $this->assertEquals($url.'?ref='.$user->affiliate_id, $user->getAffiliateLink($url, false));
+        $this->assertEquals($url.'?ref='.$user->affiliate_id, $user->getAffiliateLink($url));
     }
 
     public function testGetAffiliateIdFromCookieAndWithoutCookie()
