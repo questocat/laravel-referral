@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Cookie;
 use Mockery as m;
 use Questocat\Referral\Http\Middleware\AffiliateTracking;
 use Questocat\Referral\Referral;
+use function route;
 use Tests\Stubs\ApplicationStub;
 use Tests\Stubs\UserStub;
 
@@ -24,10 +25,10 @@ class AffiliateTrackingTest extends TestCase
     public function testAffiliateLink()
     {
         $user = UserStub::find(1);
-        $url = config('app.url');
+        $url = url('/register');
 
-        $this->assertEquals($url.'/?ref='.$user->affiliate_id, $user->getAffiliateLink());
-        $this->assertEquals($url.'/register/?ref='.$user->affiliate_id, $user->getAffiliateLink('/register'));
+        $this->assertEquals($url.'/?ref='.$user->affiliate_id, $user->getAffiliateLink($url));
+        $this->assertEquals($url.'?ref='.$user->affiliate_id, $user->getAffiliateLink($url, false));
     }
 
     public function testGetAffiliateIdFromCookieAndWithoutCookie()

@@ -18,17 +18,17 @@ use Ramsey\Uuid\Uuid;
 trait UserAffiliate
 {
     /**
-     * @param string $path
-     * @param array  $parameters
-     * @param null   $secure
+     * @param      $url
+     * @param bool $slash
      *
      * @return string
      */
-    public function getAffiliateLink($path = '/', $parameters = [], $secure = null)
+    public function getAffiliateLink($url, $slash = true)
     {
+        $url = $slash ? $url.'/' : $url;
         $refQuery = config('referral.ref_query');
 
-        return url($path, $parameters, $secure).'/?'.$refQuery.'='.$this->affiliate_id;
+        return $url.'?'.$refQuery.'='.$this->affiliate_id;
     }
 
     /**
