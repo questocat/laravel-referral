@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Cookie;
 use Mockery as m;
 use Questocat\Referral\Http\Middleware\AffiliateTracking;
 use Questocat\Referral\Referral;
-use function route;
 use Tests\Stubs\ApplicationStub;
 use Tests\Stubs\UserStub;
 
