@@ -4,4 +4,14 @@ checks:
         duplication: true
 filter:
     excluded_paths:
+        - tests/*
         - vendor/*
+build:
+    nodes:
+        my-tests-with-coverage:
+            tests:
+                override:
+                    -   command: ./vendor/bin/phpunit --coverage-clover=my-coverage-file
+                        coverage:
+                            file: my-coverage-file
+                            format: php-clover
