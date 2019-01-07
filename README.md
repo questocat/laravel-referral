@@ -12,7 +12,7 @@ A Referral System With Laravel
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
 ```bash
-$ composer require questocat/laravel-referral "~1.0"
+$ composer require questocat/laravel-referral "2.0.x-dev"
 ```
 
 First add service providers into the config/app.php
@@ -24,44 +24,44 @@ First add service providers into the config/app.php
 Publish the migrations
 
 ```bash
-$ php artisan vendor:publish --provider="Questocat\Referral\ReferralServiceProvider" --tag="migrations"
+$ php artisan vendor:publish --provider="Questocat\Referral\ReferralServiceProvider" --tag="referral-migrations"
 ```
 
 Publish the config
 
 ```bash
-$ php artisan vendor:publish --provider="Questocat\Referral\ReferralServiceProvider" --tag="config"
+$ php artisan vendor:publish --provider="Questocat\Referral\ReferralServiceProvider" --tag="referral-config"
 ```
 
 ## Setup the model
 
-Add UserReferral Trait to your User model.
+Add UserAffiliate Trait to your User model.
 
 ```php
-use Questocat\Referral\Traits\UserReferral
+use Questocat\Referral\Traits\UserAffiliate
 
 class User extends Model
 {
-    use UserReferral;
+    use UserAffiliate;
 }
 ```
 
 ## Usage
 
-Assigning CheckReferral Middleware To Routes.
+Assigning AffiliateTracking Middleware To Routes.
 
 ```php
 // Within App\Http\Kernel Class...
 
 protected $routeMiddleware = [
-    'referral' => \Questocat\Referral\Http\Middleware\CheckReferral::class,
+    'affiliate.tracking' => \Questocat\Referral\Http\Middleware\AffiliateTracking::class,
 ];
 ```
 
 Once the middleware has been defined in the HTTP kernel, you may use the middleware method to assign middleware to a route:
 
 ```php
-Route::get('/', 'HomeController@index')->middleware('referral');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->middleware('affiliate.tracking');
 ```
 
 Now you can create the user:
@@ -84,12 +84,13 @@ $data = [
 App\User::create($data);
 ```
 
-Get the referral link:
+Get the affiliate link:
 
 ```php
 $user = App\User::findOrFail(1);
+$url = url('/register/');
 
-{{ $user->getReferralLink() }}
+{{ $user->getAffiliateLink($url) }}    // http://127.0.0.1:8000/register/?ref=xxx
 ```
 
 
