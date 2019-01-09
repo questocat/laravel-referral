@@ -29,8 +29,10 @@ class AffiliateTracking
         $ref = $request->query(config('referral.ref_query'));
 
         if ($ref && $this->hasStoreAffiliateId($ref)) {
+            $name = config('referral.ref_cookie');
             $minutes = config('referral.lifetime_minutes', 0);
-            $cookie = $this->storeAffiliateId($ref, $minutes);
+
+            $cookie = $this->storeAffiliateId($name, $ref, $minutes);
 
             return $response->withCookie($cookie);
         }
@@ -55,15 +57,14 @@ class AffiliateTracking
     }
 
     /**
+     * @param     $name
      * @param     $ref
      * @param int $lifetime
      *
      * @return \Illuminate\Cookie\CookieJar|\Symfony\Component\HttpFoundation\Cookie
      */
-    protected function storeAffiliateId($ref, $lifetime = 0)
+    protected function storeAffiliateId($name, $ref, $lifetime = 0)
     {
-        $name = config('referral.ref_cookie');
-
         if ($lifetime > 0) {
             return cookie($name, $ref, $lifetime);
         }
