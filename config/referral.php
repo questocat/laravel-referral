@@ -19,4 +19,10 @@ return [
      * The length of referral code.
      */
     'referral_length' => 5,
+    
+    /*
+    * Setup the endpoint for the referral code
+    */
+    
+    'referral_url' => 'register?referral=',
 ];
