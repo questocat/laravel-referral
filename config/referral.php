@@ -19,4 +19,14 @@ return [
      * The length of referral code.
      */
     'referral_length' => 5,
+
+    /*
+     * Route for inner link
+     */
+    'route' => '/',
+
+    /*
+     * Url param name
+     */
+    'url_param_name' => 'ref',
 ];

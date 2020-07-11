@@ -19,7 +19,10 @@ trait UserReferral
 {
     public function getReferralLink()
     {
-        return url('/').'/?ref='.$this->affiliate_id;
+        $route = config('referral.route', '/');
+        $param_name = config('referral.url_param_name', 'ref');
+
+        return url('/').$route.'?'.$param_name.'='.$this->affiliate_id;
     }
 
     public static function scopeReferralExists(Builder $query, $referral)
