@@ -1,6 +1,7 @@
 preset: symfony
 
 enabled:
+  - risky
   - strict
   - strict_param
   - ordered_use
