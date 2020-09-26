@@ -41,8 +41,7 @@ class AddReferralToUsersTable extends Migration
             });
 
             DB::commit();
-        }
-        catch (\Throwable $e) {
+        } catch (\Throwable $e) {
             DB::rollBack();
             throw $e;
         }
